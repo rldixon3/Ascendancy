@@ -1,0 +1,402 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+	<AbilityDef ParentName="PsycastBase">
+		<defName>AR_Ignite</defName>
+		<label>ignite</label>
+		<description>The caster uses their psychic power to influence the molecular structure of a small area to vibrate intensely and heat up. This results in the area to combust and produce a flame that will then spread.</description>
+		<level>1</level>
+		<iconPath>UI/Abilities/Ignite</iconPath>
+		<hotKey>Misc1</hotKey>
+		<cooldownTicksRange>600</cooldownTicksRange>
+		<statBases>
+			<Ability_EntropyGain>0</Ability_EntropyGain>
+			<Ability_PsyfocusCost>0.04</Ability_PsyfocusCost>
+		</statBases>
+		<verbProperties>
+			<warmupTime>2</warmupTime>
+			<range>10</range>
+			<targetParams>
+				<canTargetLocations>True</canTargetLocations>
+				<canTargetPawns>True</canTargetPawns>
+				<canTargetAnimals>true</canTargetAnimals>
+				<canTargetBuildings>True</canTargetBuildings>
+				<canTargetHumans>True</canTargetHumans>
+				<canTargetMechs>True</canTargetMechs>
+				<canTargetSelf>True</canTargetSelf>
+			</targetParams>
+		</verbProperties>
+		<comps>
+			<li Class="Ascendancy.CompProperties_Ignite">
+			</li>
+			<li Class="CompProperties_AbilityFleckOnTarget">
+				<fleckDef>PsycastPsychicEffect</fleckDef>
+			</li>
+		</comps>
+	</AbilityDef>
+
+	<AbilityDef ParentName="PsycastBaseSkip">
+		<defName>AR_GlacierPinhole</defName>
+		<label>glacier pinhole</label>
+		<description>The caster uses their power to open a small skip gate between the location and an area deep in a glacier field.</description>
+		<level>1</level>
+		<iconPath>UI/Abilities/GlacierPinhole</iconPath>
+		<hotKey>Misc12</hotKey>
+		<canUseAoeToGetTargets>False</canUseAoeToGetTargets>
+		<hostile>false</hostile>
+		<statBases>
+			<Ability_PsyfocusCost>0.08</Ability_PsyfocusCost>
+			<Ability_EffectRadius>25.9</Ability_EffectRadius>
+			<Ability_Duration>5000</Ability_Duration>
+		</statBases>
+		<cooldownTicksRange>60000</cooldownTicksRange>
+		<verbProperties>
+			<warmupTime>0.25</warmupTime>
+			<range>24.9</range>
+			<targetParams>
+				<canTargetPawns>False</canTargetPawns>
+				<canTargetLocations>True</canTargetLocations>
+			</targetParams>
+		</verbProperties>
+		<comps>
+			<li Class="CompProperties_AbilitySpawn">
+				<thingDef>AR_GlacierPinhole</thingDef>
+				<allowOnBuildings>False</allowOnBuildings>
+			</li>
+			<li Class="CompProperties_AbilityEffecterOnTarget">
+				<effecterDef>Skip_Exit</effecterDef>
+				<maintainForTicks>60</maintainForTicks>
+				<scale>0.42</scale>
+			</li>
+			<li Class="CompProperties_AbilityFleckOnTarget">
+				<fleckDefs>
+					<li>PsycastSkipInnerExit</li>
+					<li>PsycastSkipOuterRingExit</li>
+				</fleckDefs>
+				<scale>0.42</scale>
+				<sound>Psycast_Skip_Exit</sound>
+				<preCastTicks>5</preCastTicks>
+			</li>
+		</comps>
+	</AbilityDef>
+
+	<ThingDef ParentName="EtherealThingBase">
+		<defName>AR_GlacierPinhole</defName>
+		<label>glacier pinhole</label>
+		<thingClass>ThingWithComps</thingClass>
+		<tickerType>Normal</tickerType>
+		<drawerType>RealtimeOnly</drawerType>
+		<drawOffscreen>true</drawOffscreen>
+		<category>PsychicEmitter</category>
+		<altitudeLayer>MoteOverheadLow</altitudeLayer>
+		<graphicData>
+			<graphicClass>Graphic_Single</graphicClass>
+			<texPath>Things/Mote/SolarPinhole</texPath>
+			<shaderType>MoteGlowDistorted</shaderType>
+			<color>(255, 255, 245)</color>
+			<drawSize>2</drawSize>
+			<shaderParameters>
+				<_DistortionTex>/Other/Ripples</_DistortionTex>
+				<_distortionIntensity>0.05</_distortionIntensity>
+				<_DistortionScale>0.4</_DistortionScale>
+				<_distortionScrollSpeed>(0.07, 0.07, 0.0)</_distortionScrollSpeed>
+			</shaderParameters>
+		</graphicData>
+		<comps>
+			<li Class="CompProperties_Glower">
+				<glowRadius>15</glowRadius>
+				<glowColor>(217,217,208,0)</glowColor>
+			</li>
+			<li Class="CompProperties_HeatPusher">
+				<compClass>CompHeatPusherPowered</compClass>
+				<heatPerSecond>-11</heatPerSecond>
+				<heatPushMinTemperature>0</heatPushMinTemperature>
+			</li>
+			<li Class="CompProperties_DestroyAfterDelay">
+				<delayTicks>300000</delayTicks>
+			</li>
+		</comps>
+	</ThingDef>
+
+	<AbilityDef ParentName="PsycastBase">
+		<defName>AR_Boost</defName>
+		<label>boost</label>
+		<description>The caster uses their psychic power to manipulate the cells in a target’s body to make them temporarily lighter, thus making the target able to move faster.</description>
+		<level>2</level>
+		<iconPath>UI/Abilities/Boost</iconPath>
+		<hotKey>Misc1</hotKey>
+		<cooldownTicksRange>15000</cooldownTicksRange>
+		<statBases>
+			<Ability_Duration>250</Ability_Duration>
+			<Ability_EntropyGain>5</Ability_EntropyGain>
+			<Ability_PsyfocusCost>0.12</Ability_PsyfocusCost>
+		</statBases>
+		<verbProperties>
+			<warmupTime>2</warmupTime>
+			<range>10</range>
+			<targetParams>
+				<canTargetLocations>False</canTargetLocations>
+				<canTargetPawns>True</canTargetPawns>
+				<canTargetAnimals>true</canTargetAnimals>
+				<canTargetBuildings>False</canTargetBuildings>
+				<canTargetHumans>True</canTargetHumans>
+				<canTargetMechs>False</canTargetMechs>
+				<canTargetSelf>True</canTargetSelf>
+			</targetParams>
+		</verbProperties>
+		<comps>
+			<li Class="CompProperties_AbilityGiveHediff">
+				<compClass>CompAbilityEffect_GiveHediff</compClass>
+				<hediffDef>AR_Boost</hediffDef>
+				<applicableToMechs>False</applicableToMechs>
+			</li>
+			<li Class="CompProperties_AbilityFleckOnTarget">
+				<fleckDef>PsycastPsychicEffect</fleckDef>
+			</li>
+		</comps>
+	</AbilityDef>
+
+	<HediffDef>
+		<defName>AR_Boost</defName>
+		<hediffClass>HediffWithComps</hediffClass>
+		<label>boost</label>
+		<description>Boost effect.</description>
+		<comps>
+			<li Class="HediffCompProperties_Disappears">
+				<showRemainingTime>True</showRemainingTime>
+			</li>
+			<li Class="HediffCompProperties_DisappearsOnDeath"/>
+		</comps>
+		<stages>
+			<li>
+				<statOffsets>
+					<MoveSpeed>0.2</MoveSpeed>
+				</statOffsets>
+			</li>
+		</stages>
+	</HediffDef>
+	
+	<AbilityDef ParentName="PsycastBase">
+		<defName>AR_Disarm</defName>
+		<label>disarm</label>
+		<description>The caster uses their psychic power to cause a target’s brain to lose control of its motor skill over the target’s hands.</description>
+		<level>2</level>
+		<iconPath>UI/Abilities/Disarm</iconPath>
+		<hotKey>Misc1</hotKey>
+		<cooldownTicksRange>600</cooldownTicksRange>
+		<statBases>
+			<Ability_Duration>10</Ability_Duration>
+			<Ability_EntropyGain>15</Ability_EntropyGain>
+			<Ability_PsyfocusCost>0.12</Ability_PsyfocusCost>
+		</statBases>
+		<verbProperties>
+			<warmupTime>4</warmupTime>
+			<range>15</range>
+			<targetParams>
+				<canTargetLocations>False</canTargetLocations>
+				<canTargetPawns>True</canTargetPawns>
+				<canTargetAnimals>true</canTargetAnimals>
+				<canTargetBuildings>False</canTargetBuildings>
+				<canTargetHumans>True</canTargetHumans>
+				<canTargetMechs>False</canTargetMechs>
+				<canTargetSelf>True</canTargetSelf>
+			</targetParams>
+		</verbProperties>
+		<comps>
+			<li Class="CompProperties_AbilityGiveHediff">
+				<compClass>CompAbilityEffect_GiveHediff</compClass>
+				<hediffDef>AR_Disarm</hediffDef>
+				<applicableToMechs>False</applicableToMechs>
+			</li>
+			<li Class="CompProperties_AbilityFleckOnTarget">
+				<fleckDef>PsycastPsychicEffect</fleckDef>
+			</li>
+		</comps>
+	</AbilityDef>
+
+	<HediffDef>
+		<defName>AR_Disarm</defName>
+		<hediffClass>HediffWithComps</hediffClass>
+		<label>disarm</label>
+		<description>Disarm effect.</description>
+		<comps>
+			<li Class="HediffCompProperties_Disappears">
+				<showRemainingTime>True</showRemainingTime>
+			</li>
+			<li Class="HediffCompProperties_DisappearsOnDeath"/>
+		</comps>
+		<stages>
+			<li>
+				<capMods>
+					<li>
+						<capacity>Manipulation</capacity>
+						<postFactor>0</postFactor>
+					</li>
+				</capMods>
+			</li>
+		</stages>
+	</HediffDef>
+	
+	<AbilityDef ParentName="PsycastBase">
+		<defName>AR_MassBurden</defName>
+		<label>mass burden</label>
+		<description>The caster uses their psychic power to generate a field of increased gravitational pull in a small area.</description>
+		<level>3</level>
+		<iconPath>UI/Abilities/MassBurden</iconPath>
+		<hotKey>Misc1</hotKey>
+		<cooldownTicksRange>600</cooldownTicksRange>
+		<statBases>
+			<Ability_Duration>6</Ability_Duration>
+			<Ability_EntropyGain>15</Ability_EntropyGain>
+			<Ability_PsyfocusCost>0.15</Ability_PsyfocusCost>
+			<Ability_EffectRadius>4.9</Ability_EffectRadius>
+		</statBases>
+		<verbProperties>
+			<warmupTime>5</warmupTime>
+			<range>15</range>
+			<targetParams>
+				<canTargetLocations>true</canTargetLocations>
+			</targetParams>
+		</verbProperties>
+		<comps>
+			<li Class = "CompProperties_AbilityGiveHediff">
+				<compClass>CompAbilityEffect_GiveHediff</compClass>
+				<hediffDef>PsychicBurden</hediffDef>
+				<psychic>True</psychic>
+				<goodwillImpact>-15</goodwillImpact>
+			</li>
+			<li Class="CompProperties_AbilityFleckOnTarget">
+				<fleckDef>PsycastPsychicEffect</fleckDef>
+			</li>
+		</comps>
+	</AbilityDef>
+	
+	<AbilityDef ParentName="PsycastBase">
+		<defName>AR_StunPulse</defName>
+		<label>stun pulse</label>
+		<description>The caster uses their psychic power to cause a disruption field in a small area, which causes targets in the area to experience a small pause in their motor functions.</description>
+		<level>3</level>
+		<iconPath>UI/Abilities/Stunpulse</iconPath>
+		<hotKey>Misc1</hotKey>
+		<cooldownTicksRange>600</cooldownTicksRange>
+		<statBases>
+			<Ability_Duration>6</Ability_Duration>
+			<Ability_EntropyGain>15</Ability_EntropyGain>
+			<Ability_PsyfocusCost>0.15</Ability_PsyfocusCost>
+			<Ability_EffectRadius>4.9</Ability_EffectRadius>
+		</statBases>
+		<verbProperties>
+			<warmupTime>5</warmupTime>
+			<range>15</range>
+			<targetParams>
+				<canTargetLocations>true</canTargetLocations>
+			</targetParams>
+		</verbProperties>
+		<comps>
+			<li Class = "CompProperties_AbilityEffectWithDuration">
+				<compClass>CompAbilityEffect_Stun</compClass>
+				<durationMultiplier>PsychicSensitivity</durationMultiplier>
+				<psychic>True</psychic>
+				<goodwillImpact>-15</goodwillImpact>
+			</li>
+			<li Class="CompProperties_AbilityFleckOnTarget">
+				<fleckDef>PsycastPsychicEffect</fleckDef>
+			</li>
+		</comps>
+	</AbilityDef>
+
+	<AbilityDef ParentName="PsycastBase">
+		<defName>AR_Steelskin</defName>
+		<label>steelskin</label>
+		<description>The caster uses their psychic power to make their skin cells cluster and harden to such a degree that it is as strong as steel..</description>
+		<level>4</level>
+		<iconPath>UI/Abilities/Steelskin</iconPath>
+		<hotKey>Misc1</hotKey>
+		<cooldownTicksRange>600</cooldownTicksRange>
+		<statBases>
+			<Ability_Duration>20</Ability_Duration>
+			<Ability_EntropyGain>20</Ability_EntropyGain>
+			<Ability_PsyfocusCost>0.20</Ability_PsyfocusCost>
+		</statBases>
+		<verbProperties>
+			<warmupTime>5</warmupTime>
+			<range>10</range>
+			<targetParams>
+				<canTargetLocations>False</canTargetLocations>
+				<canTargetPawns>True</canTargetPawns>
+				<canTargetAnimals>true</canTargetAnimals>
+				<canTargetBuildings>False</canTargetBuildings>
+				<canTargetHumans>True</canTargetHumans>
+				<canTargetMechs>False</canTargetMechs>
+				<canTargetSelf>True</canTargetSelf>
+			</targetParams>
+		</verbProperties>
+		<comps>
+			<li Class="CompProperties_AbilityGiveHediff">
+				<compClass>CompAbilityEffect_GiveHediff</compClass>
+				<hediffDef>AR_Steelskin</hediffDef>
+				<applicableToMechs>False</applicableToMechs>
+			</li>
+			<li Class="CompProperties_AbilityFleckOnTarget">
+				<fleckDef>PsycastPsychicEffect</fleckDef>
+			</li>
+		</comps>
+	</AbilityDef>
+
+	<HediffDef>
+		<defName>AR_Steelskin</defName>
+		<hediffClass>HediffWithComps</hediffClass>
+		<label>steelskin</label>
+		<description>Steelskin effect.</description>
+		<comps>
+			<li Class="HediffCompProperties_Disappears">
+				<showRemainingTime>True</showRemainingTime>
+			</li>
+			<li Class="HediffCompProperties_DisappearsOnDeath"/>
+		</comps>
+		<stages>
+			<li>
+				<statOffsets>
+					<ArmorRating_Sharp>0.25</ArmorRating_Sharp>
+					<ArmorRating_Blunt>0.25</ArmorRating_Blunt>
+					<ArmorRating_Heat>-0.5</ArmorRating_Heat>
+				</statOffsets>
+			</li>
+		</stages>
+	</HediffDef>
+
+	<AbilityDef ParentName="PsycastBase">
+		<defName>AR_EMPPulse</defName>
+		<label>EMP pulse</label>
+		<description>The caster uses their psychic powers to generate a pulse field that releases vibrations at a frequency that causes disruptions in electricity and mechanoids.</description>
+		<level>4</level>
+		<iconPath>UI/Abilities/EMPPulse</iconPath>
+		<hotKey>Misc1</hotKey>
+		<cooldownTicksRange>900</cooldownTicksRange>
+		<statBases>
+			<Ability_EntropyGain>25</Ability_EntropyGain>
+			<Ability_PsyfocusCost>0.25</Ability_PsyfocusCost>
+		</statBases>
+		<verbProperties>
+			<warmupTime>10</warmupTime>
+			<range>20</range>
+			<targetParams>
+				<canTargetLocations>True</canTargetLocations>
+				<canTargetPawns>True</canTargetPawns>
+				<canTargetAnimals>true</canTargetAnimals>
+				<canTargetBuildings>True</canTargetBuildings>
+				<canTargetHumans>True</canTargetHumans>
+				<canTargetMechs>True</canTargetMechs>
+			</targetParams>
+		</verbProperties>
+		<comps>
+			<li Class="Ascendancy.CompProperties_AbilityExplosion">
+				<radius>15</radius>
+				<damageDef>EMP</damageDef>
+			</li>
+			<li Class="CompProperties_AbilityFleckOnTarget">
+				<fleckDef>PsycastPsychicEffect</fleckDef>
+			</li>
+		</comps>
+	</AbilityDef>
+</Defs>

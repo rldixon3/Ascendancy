@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+	<name>Ascendancy Rebirth</name>
+	<author>Tyrannical_Elmo</author>
+	<url/>
+	<supportedVersions>
+		<li>1.4</li>
+	</supportedVersions>
+	<packageId>TyrannicalElmo.Ascendancy</packageId>
+	<description>.</description>
+	<loadAfter>
+		<li>brrainz.harmony</li>
+		<li>OskarPotocki.VanillaFactionsExpanded.Core</li>
+	</loadAfter>
+</ModMetaData>

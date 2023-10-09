@@ -175,7 +175,7 @@
 			</li>
 		</stages>
 	</HediffDef>
-	
+
 	<AbilityDef ParentName="PsycastBase">
 		<defName>AR_Disarm</defName>
 		<label>disarm</label>
@@ -236,7 +236,7 @@
 			</li>
 		</stages>
 	</HediffDef>
-	
+
 	<AbilityDef ParentName="PsycastBase">
 		<defName>AR_MassBurden</defName>
 		<label>mass burden</label>
@@ -259,7 +259,7 @@
 			</targetParams>
 		</verbProperties>
 		<comps>
-			<li Class = "CompProperties_AbilityGiveHediff">
+			<li Class="CompProperties_AbilityGiveHediff">
 				<compClass>CompAbilityEffect_GiveHediff</compClass>
 				<hediffDef>PsychicBurden</hediffDef>
 				<psychic>True</psychic>
@@ -270,7 +270,7 @@
 			</li>
 		</comps>
 	</AbilityDef>
-	
+
 	<AbilityDef ParentName="PsycastBase">
 		<defName>AR_StunPulse</defName>
 		<label>stun pulse</label>
@@ -286,14 +286,14 @@
 			<Ability_EffectRadius>4.9</Ability_EffectRadius>
 		</statBases>
 		<verbProperties>
-			<warmupTime>5</warmupTime>
+			<warmupTime>1.5</warmupTime>
 			<range>15</range>
 			<targetParams>
 				<canTargetLocations>true</canTargetLocations>
 			</targetParams>
 		</verbProperties>
 		<comps>
-			<li Class = "CompProperties_AbilityEffectWithDuration">
+			<li Class="CompProperties_AbilityEffectWithDuration">
 				<compClass>CompAbilityEffect_Stun</compClass>
 				<durationMultiplier>PsychicSensitivity</durationMultiplier>
 				<psychic>True</psychic>
@@ -399,4 +399,149 @@
 			</li>
 		</comps>
 	</AbilityDef>
+
+	<AbilityDef ParentName="PsycastBase">
+		<defName>AR_Stasis</defName>
+		<label>stasis</label>
+		<description>The caster uses their psychic power to form a layer of psychic energy over a target, freezing their state in the current time for a certain period.</description>
+		<level>5</level>
+		<iconPath>UI/Abilities/Stasis</iconPath>
+		<hotKey>Misc1</hotKey>
+		<cooldownTicksRange>10000</cooldownTicksRange>
+		<statBases>
+			<Ability_Duration>2000</Ability_Duration>
+			<Ability_EntropyGain>30</Ability_EntropyGain>
+			<Ability_PsyfocusCost>0.30</Ability_PsyfocusCost>
+		</statBases>
+		<verbProperties>
+			<warmupTime>15</warmupTime>
+			<range>10</range>
+			<targetParams>
+				<canTargetLocations>False</canTargetLocations>
+				<canTargetPawns>True</canTargetPawns>
+				<canTargetAnimals>true</canTargetAnimals>
+				<canTargetBuildings>False</canTargetBuildings>
+				<canTargetHumans>True</canTargetHumans>
+				<canTargetMechs>False</canTargetMechs>
+			</targetParams>
+		</verbProperties>
+		<comps>
+			<li Class="CompProperties_AbilityGiveHediff">
+				<compClass>CompAbilityEffect_GiveHediff</compClass>
+				<hediffDef>AR_Stasis</hediffDef>
+				<applicableToMechs>False</applicableToMechs>
+			</li>
+			<li Class="CompProperties_AbilityFleckOnTarget">
+				<fleckDef>PsycastPsychicEffect</fleckDef>
+			</li>
+		</comps>
+	</AbilityDef>
+
+	<HediffDef>
+		<defName>AR_Stasis</defName>
+		<hediffClass>HediffWithComps</hediffClass>
+		<label>stasis</label>
+		<description>Stasis effect.</description>
+		<comps>
+			<li Class="HediffCompProperties_Disappears">
+				<showRemainingTime>True</showRemainingTime>
+			</li>
+			<li Class="HediffCompProperties_DisappearsOnDeath"/>
+		</comps>
+	</HediffDef>
+
+	<AbilityDef ParentName="PsycastBase">
+		<defName>AR_ChronoRestore</defName>
+		<label>chrono-restore</label>
+		<description>The caster uses their psychic power to form a layer of psychic energy over an inanimate object and restore it to a previous state of better condition.</description>
+		<level>5</level>
+		<iconPath>UI/Abilities/Stasis</iconPath>
+		<hotKey>Misc1</hotKey>
+		<cooldownTicksRange>600</cooldownTicksRange>
+		<statBases>
+			<Ability_EntropyGain>20</Ability_EntropyGain>
+			<Ability_PsyfocusCost>0.20</Ability_PsyfocusCost>
+		</statBases>
+		<verbProperties>
+			<warmupTime>5</warmupTime>
+			<range>10</range>
+			<targetParams>
+				<canTargetItems>True</canTargetItems>
+				<canTargetBuildings>True</canTargetBuildings>
+				<canTargetPawns>False</canTargetPawns>
+			</targetParams>
+		</verbProperties>
+		<comps>
+			<li Class="Ascendancy.CompProperties_RestoreHP"/>
+			<li Class="CompProperties_AbilityFleckOnTarget">
+				<fleckDef>PsycastPsychicEffect</fleckDef>
+			</li>
+		</comps>
+	</AbilityDef>
+	
+	<AbilityDef ParentName="PsycastBase">
+		<defName>AR_WindWave</defName>
+		<label>wind wave</label>
+		<description>The caster uses their immense psychic power to stir up the atmosphere to produce strong winds to blow away pollution and toxic elements.</description>
+		<jobDef>CastAbilityOnThing</jobDef>
+		<targetRequired>False</targetRequired>
+		<canUseAoeToGetTargets>False</canUseAoeToGetTargets>
+		<iconPath>UI/Abilities/WindWave</iconPath>
+		<displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
+		<disableGizmoWhileUndrafted>False</disableGizmoWhileUndrafted>
+		<cooldownTicksRange>300000</cooldownTicksRange>
+		<statBases>
+			<Ability_Duration>1000</Ability_Duration>
+			<Ability_EntropyGain>50</Ability_EntropyGain>
+			<Ability_PsyfocusCost>0.50</Ability_PsyfocusCost>
+		</statBases>
+		<verbProperties>
+			<verbClass>Verb_CastAbility</verbClass>
+			<warmupTime>30</warmupTime>
+			<range>-1</range>
+			<drawAimPie>False</drawAimPie>
+			<requireLineOfSight>False</requireLineOfSight>
+			<targetParams>
+				<canTargetSelf>true</canTargetSelf>
+				<canTargetPawns>false</canTargetPawns>
+				<canTargetBuildings>false</canTargetBuildings>
+				<canTargetAnimals>false</canTargetAnimals>
+				<canTargetHumans>false</canTargetHumans>
+				<canTargetMechs>false</canTargetMechs>
+			</targetParams>
+		</verbProperties>
+		<comps>
+			<li Class="CompProperties_AbilityGiveHediff">
+				<compClass>CompAbilityEffect_GiveHediff</compClass>
+				<hediffDef>AR_WindWave</hediffDef>
+				<onlyApplyToSelf>True</onlyApplyToSelf>
+				<replaceExisting>true</replaceExisting>
+			</li>
+			<li Class="Ascendancy.CompProperties_WindWave"/>
+		</comps>
+	</AbilityDef>
+
+	<HediffDef>
+		<defName>AR_WindWave</defName>
+		<hediffClass>HediffWithComps</hediffClass>
+		<label>wind wave</label>
+		<description>Wind wave effect.</description>
+		<comps>
+			<li Class="HediffCompProperties_Disappears">
+				<showRemainingTime>True</showRemainingTime>
+			</li>
+			<li Class="HediffCompProperties_DisappearsOnDeath"/>
+		</comps>
+		<stages>
+			<li>
+				<painOffset>0.05</painOffset>
+				<capMods>
+					<li>
+						<capacity>Consciousness</capacity>
+						<offset>-0.05</offset>
+					</li>
+				</capMods>
+			</li>
+		</stages>
+	</HediffDef>
 </Defs>

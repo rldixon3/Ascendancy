@@ -42,6 +42,12 @@ namespace Ascendancy
             }
             pick = null;
         }
+
+        public override bool CanApplyOn(LocalTargetInfo target)
+        {
+            pick = null;
+            return base.CanApplyOn(target);
+        }
     }
 
     public class CompProperties_Terraforma : CompProperties_AbilityEffect

@@ -483,6 +483,7 @@
 		<defName>AR_WindWave</defName>
 		<label>wind wave</label>
 		<description>The caster uses their immense psychic power to stir up the atmosphere to produce strong winds to blow away pollution and toxic elements.</description>
+		<level>6</level>
 		<jobDef>CastAbilityOnThing</jobDef>
 		<targetRequired>False</targetRequired>
 		<canUseAoeToGetTargets>False</canUseAoeToGetTargets>
@@ -526,6 +527,73 @@
 		<hediffClass>HediffWithComps</hediffClass>
 		<label>wind wave</label>
 		<description>Wind wave effect.</description>
+		<comps>
+			<li Class="HediffCompProperties_Disappears">
+				<showRemainingTime>True</showRemainingTime>
+			</li>
+			<li Class="HediffCompProperties_DisappearsOnDeath"/>
+		</comps>
+		<stages>
+			<li>
+				<painOffset>0.05</painOffset>
+				<capMods>
+					<li>
+						<capacity>Consciousness</capacity>
+						<offset>-0.05</offset>
+					</li>
+				</capMods>
+			</li>
+		</stages>
+	</HediffDef>
+
+Terraforma: 
+
+Effects:
+Changes the terrain of a 10x10 target area to one of the caster's choices. Soil, Stone or even water. Caster gains 5% temporary increase to pain. Caster consciousness decreases by 5% temporarily.
+
+	<AbilityDef ParentName="PsycastBase">
+		<defName>AR_Terraforma</defName>
+		<label>terraforma</label>
+		<description>The caster uses their immense psychic power to change the molecular make-up of target terrain to one of the caster’s desired terrain.</description>
+		<level>6</level>
+		<iconPath>UI/Abilities/Terraforma</iconPath>
+		<abilityClass>Ascendancy.Ability_Terraforma</abilityClass>
+		<hotKey>Misc1</hotKey>
+		<cooldownTicksRange>1800</cooldownTicksRange>
+		<targetRequired>false</targetRequired>
+		<statBases>
+			<Ability_Duration>1000</Ability_Duration>
+			<Ability_EntropyGain>30</Ability_EntropyGain>
+			<Ability_PsyfocusCost>0.30</Ability_PsyfocusCost>
+		</statBases>
+		<verbProperties>
+			<warmupTime>30</warmupTime>
+			<range>20</range>
+			<targetParams>
+				<canTargetLocations>true</canTargetLocations>
+			</targetParams>
+		</verbProperties>
+		<comps>
+			<li Class="CompProperties_AbilityGiveHediff">
+				<compClass>CompAbilityEffect_GiveHediff</compClass>
+				<hediffDef>AR_Terraforma</hediffDef>
+				<onlyApplyToSelf>True</onlyApplyToSelf>
+				<replaceExisting>true</replaceExisting>
+			</li>
+			<li Class="Ascendancy.CompProperties_Terraforma"/>
+			
+			<li Class="CompProperties_AbilityFleckOnTarget">
+				<fleckDef>PsycastPsychicEffect</fleckDef>
+			</li>
+		</comps>
+	</AbilityDef>
+	
+
+	<HediffDef>
+		<defName>AR_Terraforma</defName>
+		<hediffClass>HediffWithComps</hediffClass>
+		<label>terraforma</label>
+		<description>Terraforma effect.</description>
 		<comps>
 			<li Class="HediffCompProperties_Disappears">
 				<showRemainingTime>True</showRemainingTime>

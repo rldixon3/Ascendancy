@@ -67,6 +67,7 @@
     <Compile Include="CompAbilityEffect_Explosion.cs" />
     <Compile Include="CompAbilityEffect_Ignite.cs" />
     <Compile Include="CompAbilityEffect_RestoreHP.cs" />
+    <Compile Include="CompAbilityEffect_Terraforma.cs" />
     <Compile Include="CompAbilityEffect_WindWave.cs" />
     <Compile Include="CompPowerPlantWind_DesiredPowerOutput_Patch.cs" />
     <Compile Include="GameConditionManager_RegisterCondition_Patch.cs" />

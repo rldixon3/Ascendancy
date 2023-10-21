@@ -546,11 +546,6 @@
 		</stages>
 	</HediffDef>
 
-Terraforma: 
-
-Effects:
-Changes the terrain of a 10x10 target area to one of the caster's choices. Soil, Stone or even water. Caster gains 5% temporary increase to pain. Caster consciousness decreases by 5% temporarily.
-
 	<AbilityDef ParentName="PsycastBase">
 		<defName>AR_Terraforma</defName>
 		<label>terraforma</label>
@@ -594,6 +589,287 @@ Changes the terrain of a 10x10 target area to one of the caster's choices. Soil,
 		<hediffClass>HediffWithComps</hediffClass>
 		<label>terraforma</label>
 		<description>Terraforma effect.</description>
+		<comps>
+			<li Class="HediffCompProperties_Disappears">
+				<showRemainingTime>True</showRemainingTime>
+			</li>
+			<li Class="HediffCompProperties_DisappearsOnDeath"/>
+		</comps>
+		<stages>
+			<li>
+				<painOffset>0.05</painOffset>
+				<capMods>
+					<li>
+						<capacity>Consciousness</capacity>
+						<offset>-0.05</offset>
+					</li>
+				</capMods>
+			</li>
+		</stages>
+	</HediffDef>
+	
+	<AbilityDef ParentName="PsycastBase">
+		<defName>AR_Weave</defName>
+		<label>weave</label>
+		<description>The caster uses their psychic power to force the cells in a target pawn’s body to regrow and reform bone, muscle and tissue.</description>
+		<level>6</level>
+		<jobDef>CastAbilityOnThingMelee</jobDef>
+		<stunTargetWhileCasting>True</stunTargetWhileCasting>
+		<iconPath>UI/Abilities/Weave</iconPath>
+		<hotKey>Misc1</hotKey>
+		<cooldownTicksRange>180000</cooldownTicksRange>
+		<statBases>
+			<Ability_EntropyGain>35</Ability_EntropyGain>
+			<Ability_PsyfocusCost>0.35</Ability_PsyfocusCost>
+		</statBases>
+		<verbProperties>
+			<warmupTime>60</warmupTime>
+			<range>-1</range>
+			<drawAimPie>False</drawAimPie>
+			<requireLineOfSight>False</requireLineOfSight>
+			<targetParams>
+				<canTargetSelf>true</canTargetSelf>
+				<canTargetPawns>true</canTargetPawns>
+				<canTargetBuildings>false</canTargetBuildings>
+				<canTargetAnimals>true</canTargetAnimals>
+				<canTargetHumans>true</canTargetHumans>
+				<canTargetMechs>false</canTargetMechs>
+			</targetParams>
+		</verbProperties>
+		<comps>
+			<li Class="CompProperties_AbilityGiveHediff">
+				<compClass>CompAbilityEffect_GiveHediff</compClass>
+				<hediffDef>AR_Weave</hediffDef>
+				<onlyApplyToSelf>True</onlyApplyToSelf>
+				<replaceExisting>true</replaceExisting>
+			</li>
+			<li Class="Ascendancy.CompProperties_Weave"/>
+			
+			<li Class="CompProperties_AbilityFleckOnTarget">
+				<fleckDef>PsycastPsychicEffect</fleckDef>
+			</li>
+		</comps>
+	</AbilityDef>
+	
+	<HediffDef>
+		<defName>AR_Weave</defName>
+		<hediffClass>HediffWithComps</hediffClass>
+		<label>weave</label>
+		<description>Weave effect.</description>
+		<comps>
+			<li Class="HediffCompProperties_Disappears">
+				<showRemainingTime>True</showRemainingTime>
+			</li>
+			<li Class="HediffCompProperties_DisappearsOnDeath"/>
+		</comps>
+		<stages>
+			<li>
+				<painOffset>0.05</painOffset>
+				<capMods>
+					<li>
+						<capacity>Consciousness</capacity>
+						<offset>-0.05</offset>
+					</li>
+				</capMods>
+			</li>
+		</stages>
+	</HediffDef>
+	
+	<AbilityDef ParentName="PsycastBase">
+		<defName>AR_Genetypis</defName>
+		<label>Genetypis</label>
+		<description>The caster uses their psychic power to manipulate a target’s cells to cause the target to change.</description>
+		<level>6</level>
+		<jobDef>CastAbilityOnThingMelee</jobDef>
+		<stunTargetWhileCasting>True</stunTargetWhileCasting>
+		<iconPath>UI/Abilities/Genetypis</iconPath>
+		<hotKey>Misc1</hotKey>
+		<cooldownTicksRange>180000</cooldownTicksRange>
+		<statBases>
+			<Ability_EntropyGain>40</Ability_EntropyGain>
+			<Ability_PsyfocusCost>0.40</Ability_PsyfocusCost>
+		</statBases>
+		<verbProperties>
+			<warmupTime>120</warmupTime>
+			<range>-1</range>
+			<drawAimPie>False</drawAimPie>
+			<requireLineOfSight>False</requireLineOfSight>
+			<targetParams>
+				<canTargetSelf>true</canTargetSelf>
+				<canTargetPawns>true</canTargetPawns>
+				<canTargetBuildings>false</canTargetBuildings>
+				<canTargetAnimals>False</canTargetAnimals>
+				<canTargetHumans>true</canTargetHumans>
+				<canTargetMechs>false</canTargetMechs>
+			</targetParams>
+		</verbProperties>
+		<comps>
+			<li Class="CompProperties_AbilityGiveHediff">
+				<compClass>CompAbilityEffect_GiveHediff</compClass>
+				<hediffDef>AR_Genetypis</hediffDef>
+				<onlyApplyToSelf>True</onlyApplyToSelf>
+				<replaceExisting>true</replaceExisting>
+			</li>
+			<li Class="Ascendancy.CompProperties_Genetypis">
+				<goodwillImpact>-30</goodwillImpact>
+			</li>
+			
+			<li Class="CompProperties_AbilityFleckOnTarget">
+				<fleckDef>PsycastPsychicEffect</fleckDef>
+			</li>
+		</comps>
+	</AbilityDef>
+	
+	<HediffDef>
+		<defName>AR_Genetypis</defName>
+		<hediffClass>HediffWithComps</hediffClass>
+		<label>Genetypis</label>
+		<description>Genetypis effect.</description>
+		<comps>
+			<li Class="HediffCompProperties_Disappears">
+				<showRemainingTime>True</showRemainingTime>
+			</li>
+			<li Class="HediffCompProperties_DisappearsOnDeath"/>
+		</comps>
+		<stages>
+			<li>
+				<painOffset>0.05</painOffset>
+				<capMods>
+					<li>
+						<capacity>Consciousness</capacity>
+						<offset>-0.05</offset>
+					</li>
+				</capMods>
+			</li>
+		</stages>
+	</HediffDef>
+	
+	<AbilityDef ParentName="PsycastBase">
+		<defName>AR_PersonaManifest</defName>
+		<label>Persona Manifest</label>
+		<description>The caster uses their incomprehensible psychic abilities to communicate with an Archotect. The pawn borrows power from the Archotect to manipulate another pawn into gaining a small portion of the machine’s power whether positive or negative.</description>
+		<level>6</level>
+		<jobDef>CastAbilityOnThingMelee</jobDef>
+		<stunTargetWhileCasting>True</stunTargetWhileCasting>
+		<iconPath>UI/Abilities/PersonaManifest</iconPath>
+		<hotKey>Misc1</hotKey>
+		<cooldownTicksRange>900000</cooldownTicksRange>
+		<statBases>
+			<Ability_EntropyGain>50</Ability_EntropyGain>
+			<Ability_PsyfocusCost>0.50</Ability_PsyfocusCost>
+		</statBases>
+		<verbProperties>
+			<warmupTime>240</warmupTime>
+			<range>-1</range>
+			<drawAimPie>False</drawAimPie>
+			<requireLineOfSight>False</requireLineOfSight>
+			<targetParams>
+				<canTargetSelf>true</canTargetSelf>
+				<canTargetPawns>true</canTargetPawns>
+				<canTargetBuildings>false</canTargetBuildings>
+				<canTargetAnimals>False</canTargetAnimals>
+				<canTargetHumans>true</canTargetHumans>
+				<canTargetMechs>false</canTargetMechs>
+			</targetParams>
+		</verbProperties>
+		<comps>
+			<li Class="CompProperties_AbilityGiveHediff">
+				<compClass>CompAbilityEffect_GiveHediff</compClass>
+				<hediffDef>AR_PersonaManifest</hediffDef>
+				<onlyApplyToSelf>True</onlyApplyToSelf>
+				<replaceExisting>true</replaceExisting>
+			</li>
+			<li Class="Ascendancy.CompProperties_PersonaManifest">
+			</li>
+			
+			<li Class="CompProperties_AbilityFleckOnTarget">
+				<fleckDef>PsycastPsychicEffect</fleckDef>
+			</li>
+		</comps>
+	</AbilityDef>
+	
+	<HediffDef>
+		<defName>AR_PersonaManifest</defName>
+		<hediffClass>HediffWithComps</hediffClass>
+		<label>Persona Manifest</label>
+		<description>Persona Manifest effect.</description>
+		<comps>
+			<li Class="HediffCompProperties_Disappears">
+				<showRemainingTime>True</showRemainingTime>
+			</li>
+			<li Class="HediffCompProperties_DisappearsOnDeath"/>
+		</comps>
+		<stages>
+			<li>
+				<painOffset>0.05</painOffset>
+				<capMods>
+					<li>
+						<capacity>Consciousness</capacity>
+						<offset>-0.05</offset>
+					</li>
+				</capMods>
+			</li>
+		</stages>
+	</HediffDef>
+	
+
+Nature Manifest: 
+
+Effects:
+Causes the Anima Tree, Gauranlen Seed, or Pollux Tree event to trigger. Increases casters pain temporarily by 5%, Decreases casters consciousness by 5% temporarily. Requires a persona core to cast. 
+
+
+
+	<AbilityDef ParentName="PsycastBase">
+		<defName>AR_NatureManifest</defName>
+		<label>Nature Manifest</label>
+		<description>The caster uses their incomprehensible psychic abilities to communicate with an Archotect who has chosen the route of natural order. The pawn borrows power from the Archotect to summon one of the three different types of special trees of the rimworlds.</description>
+		<level>6</level>
+		<iconPath>UI/Abilities/NatureManifest</iconPath>
+		<hotKey>Misc1</hotKey>
+		<cooldownTicksRange>3600000</cooldownTicksRange>
+		<jobDef>CastAbilityOnThing</jobDef>
+		<targetRequired>False</targetRequired>
+		<canUseAoeToGetTargets>False</canUseAoeToGetTargets>
+		<statBases>
+			<Ability_EntropyGain>50</Ability_EntropyGain>
+			<Ability_PsyfocusCost>0.50</Ability_PsyfocusCost>
+		</statBases>
+		<verbProperties>
+			<warmupTime>240</warmupTime>
+			<range>-1</range>
+			<drawAimPie>False</drawAimPie>
+			<requireLineOfSight>False</requireLineOfSight>
+			<targetParams>
+				<canTargetSelf>true</canTargetSelf>
+				<canTargetPawns>true</canTargetPawns>
+				<canTargetBuildings>false</canTargetBuildings>
+				<canTargetAnimals>False</canTargetAnimals>
+				<canTargetHumans>true</canTargetHumans>
+				<canTargetMechs>false</canTargetMechs>
+			</targetParams>
+		</verbProperties>
+		<comps>
+			<li Class="CompProperties_AbilityGiveHediff">
+				<compClass>CompAbilityEffect_GiveHediff</compClass>
+				<hediffDef>AR_NatureManifest</hediffDef>
+				<onlyApplyToSelf>True</onlyApplyToSelf>
+				<replaceExisting>true</replaceExisting>
+			</li>
+			<li Class="Ascendancy.CompProperties_NatureManifest">
+			</li>
+			
+			<li Class="CompProperties_AbilityFleckOnTarget">
+				<fleckDef>PsycastPsychicEffect</fleckDef>
+			</li>
+		</comps>
+	</AbilityDef>
+	
+	<HediffDef>
+		<defName>AR_NatureManifest</defName>
+		<hediffClass>HediffWithComps</hediffClass>
+		<label>Nature Manifest</label>
+		<description>Nature Manifest effect.</description>
 		<comps>
 			<li Class="HediffCompProperties_Disappears">
 				<showRemainingTime>True</showRemainingTime>

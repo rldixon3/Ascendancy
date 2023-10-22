@@ -7,6 +7,6 @@ namespace Ascendancy
     public static class AR_DefOf
     {
         public static HediffDef AR_Stasis;
-
+        public static HediffDef PsychicComa;
     }
 }

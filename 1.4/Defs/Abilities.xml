@@ -27,8 +27,7 @@
 			</targetParams>
 		</verbProperties>
 		<comps>
-			<li Class="Ascendancy.CompProperties_Ignite">
-			</li>
+			<li Class="Ascendancy.CompProperties_Ignite"></li>
 			<li Class="CompProperties_AbilityFleckOnTarget">
 				<fleckDef>PsycastPsychicEffect</fleckDef>
 			</li>
@@ -478,7 +477,7 @@
 			</li>
 		</comps>
 	</AbilityDef>
-	
+
 	<AbilityDef ParentName="PsycastBase">
 		<defName>AR_WindWave</defName>
 		<label>wind wave</label>
@@ -576,13 +575,12 @@
 				<replaceExisting>true</replaceExisting>
 			</li>
 			<li Class="Ascendancy.CompProperties_Terraforma"/>
-			
+
 			<li Class="CompProperties_AbilityFleckOnTarget">
 				<fleckDef>PsycastPsychicEffect</fleckDef>
 			</li>
 		</comps>
 	</AbilityDef>
-	
 
 	<HediffDef>
 		<defName>AR_Terraforma</defName>
@@ -607,7 +605,7 @@
 			</li>
 		</stages>
 	</HediffDef>
-	
+
 	<AbilityDef ParentName="PsycastBase">
 		<defName>AR_Weave</defName>
 		<label>weave</label>
@@ -619,6 +617,7 @@
 		<hotKey>Misc1</hotKey>
 		<cooldownTicksRange>180000</cooldownTicksRange>
 		<statBases>
+			<Ability_Duration>1000</Ability_Duration>
 			<Ability_EntropyGain>35</Ability_EntropyGain>
 			<Ability_PsyfocusCost>0.35</Ability_PsyfocusCost>
 		</statBases>
@@ -644,13 +643,12 @@
 				<replaceExisting>true</replaceExisting>
 			</li>
 			<li Class="Ascendancy.CompProperties_Weave"/>
-			
 			<li Class="CompProperties_AbilityFleckOnTarget">
 				<fleckDef>PsycastPsychicEffect</fleckDef>
 			</li>
 		</comps>
 	</AbilityDef>
-	
+
 	<HediffDef>
 		<defName>AR_Weave</defName>
 		<hediffClass>HediffWithComps</hediffClass>
@@ -674,7 +672,7 @@
 			</li>
 		</stages>
 	</HediffDef>
-	
+
 	<AbilityDef ParentName="PsycastBase">
 		<defName>AR_Genetypis</defName>
 		<label>Genetypis</label>
@@ -686,6 +684,7 @@
 		<hotKey>Misc1</hotKey>
 		<cooldownTicksRange>180000</cooldownTicksRange>
 		<statBases>
+			<Ability_Duration>1000</Ability_Duration>
 			<Ability_EntropyGain>40</Ability_EntropyGain>
 			<Ability_PsyfocusCost>0.40</Ability_PsyfocusCost>
 		</statBases>
@@ -713,13 +712,13 @@
 			<li Class="Ascendancy.CompProperties_Genetypis">
 				<goodwillImpact>-30</goodwillImpact>
 			</li>
-			
+
 			<li Class="CompProperties_AbilityFleckOnTarget">
 				<fleckDef>PsycastPsychicEffect</fleckDef>
 			</li>
 		</comps>
 	</AbilityDef>
-	
+
 	<HediffDef>
 		<defName>AR_Genetypis</defName>
 		<hediffClass>HediffWithComps</hediffClass>
@@ -743,7 +742,7 @@
 			</li>
 		</stages>
 	</HediffDef>
-	
+
 	<AbilityDef ParentName="PsycastBase">
 		<defName>AR_PersonaManifest</defName>
 		<label>Persona Manifest</label>
@@ -755,6 +754,7 @@
 		<hotKey>Misc1</hotKey>
 		<cooldownTicksRange>900000</cooldownTicksRange>
 		<statBases>
+			<Ability_Duration>1000</Ability_Duration>
 			<Ability_EntropyGain>50</Ability_EntropyGain>
 			<Ability_PsyfocusCost>0.50</Ability_PsyfocusCost>
 		</statBases>
@@ -780,14 +780,15 @@
 				<replaceExisting>true</replaceExisting>
 			</li>
 			<li Class="Ascendancy.CompProperties_PersonaManifest">
+				<goodwillImpact>-30</goodwillImpact>
 			</li>
-			
+
 			<li Class="CompProperties_AbilityFleckOnTarget">
 				<fleckDef>PsycastPsychicEffect</fleckDef>
 			</li>
 		</comps>
 	</AbilityDef>
-	
+
 	<HediffDef>
 		<defName>AR_PersonaManifest</defName>
 		<hediffClass>HediffWithComps</hediffClass>
@@ -811,14 +812,6 @@
 			</li>
 		</stages>
 	</HediffDef>
-	
-
-Nature Manifest: 
-
-Effects:
-Causes the Anima Tree, Gauranlen Seed, or Pollux Tree event to trigger. Increases casters pain temporarily by 5%, Decreases casters consciousness by 5% temporarily. Requires a persona core to cast. 
-
-
 
 	<AbilityDef ParentName="PsycastBase">
 		<defName>AR_NatureManifest</defName>
@@ -832,6 +825,7 @@ Causes the Anima Tree, Gauranlen Seed, or Pollux Tree event to trigger. Increase
 		<targetRequired>False</targetRequired>
 		<canUseAoeToGetTargets>False</canUseAoeToGetTargets>
 		<statBases>
+			<Ability_Duration>1000</Ability_Duration>
 			<Ability_EntropyGain>50</Ability_EntropyGain>
 			<Ability_PsyfocusCost>0.50</Ability_PsyfocusCost>
 		</statBases>
@@ -856,15 +850,13 @@ Causes the Anima Tree, Gauranlen Seed, or Pollux Tree event to trigger. Increase
 				<onlyApplyToSelf>True</onlyApplyToSelf>
 				<replaceExisting>true</replaceExisting>
 			</li>
-			<li Class="Ascendancy.CompProperties_NatureManifest">
-			</li>
-			
+			<li Class="Ascendancy.CompProperties_NatureManifest"></li>
 			<li Class="CompProperties_AbilityFleckOnTarget">
 				<fleckDef>PsycastPsychicEffect</fleckDef>
 			</li>
 		</comps>
 	</AbilityDef>
-	
+
 	<HediffDef>
 		<defName>AR_NatureManifest</defName>
 		<hediffClass>HediffWithComps</hediffClass>
@@ -885,6 +877,196 @@ Causes the Anima Tree, Gauranlen Seed, or Pollux Tree event to trigger. Increase
 						<offset>-0.05</offset>
 					</li>
 				</capMods>
+			</li>
+		</stages>
+	</HediffDef>
+
+	<AbilityDef ParentName="PsycastBase">
+		<defName>AR_Domination</defName>
+		<label>Domination</label>
+		<description>The caster uses their unfathomable power to communicate with an Archotect. Using the power, they can force a pawn to bend to their will.</description>
+		<level>6</level>
+		<jobDef>CastAbilityOnThingMelee</jobDef>
+		<stunTargetWhileCasting>True</stunTargetWhileCasting>
+		<iconPath>UI/Abilities/Domination</iconPath>
+		<hotKey>Misc1</hotKey>
+		<cooldownTicksRange>3600000</cooldownTicksRange>
+		<statBases>
+			<Ability_Duration>3000</Ability_Duration>
+			<Ability_EntropyGain>60</Ability_EntropyGain>
+			<Ability_PsyfocusCost>0.60</Ability_PsyfocusCost>
+		</statBases>
+		<verbProperties>
+			<warmupTime>120</warmupTime>
+			<range>-1</range>
+			<drawAimPie>False</drawAimPie>
+			<requireLineOfSight>False</requireLineOfSight>
+			<targetParams>
+				<canTargetSelf>false</canTargetSelf>
+				<canTargetPawns>true</canTargetPawns>
+				<canTargetBuildings>false</canTargetBuildings>
+				<canTargetAnimals>False</canTargetAnimals>
+				<canTargetHumans>true</canTargetHumans>
+				<canTargetMechs>false</canTargetMechs>
+			</targetParams>
+		</verbProperties>
+		<comps>
+			<li Class="CompProperties_AbilityGiveHediff">
+				<compClass>CompAbilityEffect_GiveHediff</compClass>
+				<hediffDef>PsychicComa</hediffDef>
+				<onlyApplyToSelf>True</onlyApplyToSelf>
+				<replaceExisting>true</replaceExisting>
+			</li>
+			<li Class="Ascendancy.CompProperties_Domination">
+				<goodwillImpact>-30</goodwillImpact>
+			</li>
+
+			<li Class="CompProperties_AbilityFleckOnTarget">
+				<fleckDef>PsycastPsychicEffect</fleckDef>
+			</li>
+		</comps>
+	</AbilityDef>
+
+	<AbilityDef ParentName="PsycastBase">
+		<defName>AR_Erasure</defName>
+		<label>Erasure</label>
+		<description>The caster uses their unfathomable power to communicate with an Archotect. Using the power, they alter another pawn’s existence.</description>
+		<level>6</level>
+		<jobDef>CastAbilityOnThingMelee</jobDef>
+		<stunTargetWhileCasting>True</stunTargetWhileCasting>
+		<iconPath>UI/Abilities/Erasure</iconPath>
+		<hotKey>Misc1</hotKey>
+		<cooldownTicksRange>3600000</cooldownTicksRange>
+		<statBases>
+			<Ability_Duration>3000</Ability_Duration>
+			<Ability_EntropyGain>60</Ability_EntropyGain>
+			<Ability_PsyfocusCost>0.60</Ability_PsyfocusCost>
+		</statBases>
+		<verbProperties>
+			<warmupTime>120</warmupTime>
+			<range>-1</range>
+			<drawAimPie>False</drawAimPie>
+			<requireLineOfSight>False</requireLineOfSight>
+			<targetParams>
+				<canTargetSelf>false</canTargetSelf>
+				<canTargetPawns>true</canTargetPawns>
+				<canTargetBuildings>false</canTargetBuildings>
+				<canTargetAnimals>False</canTargetAnimals>
+				<canTargetHumans>true</canTargetHumans>
+				<canTargetMechs>false</canTargetMechs>
+			</targetParams>
+		</verbProperties>
+		<comps>
+			<li Class="CompProperties_AbilityGiveHediff">
+				<compClass>CompAbilityEffect_GiveHediff</compClass>
+				<hediffDef>PsychicComa</hediffDef>
+				<onlyApplyToSelf>True</onlyApplyToSelf>
+				<replaceExisting>true</replaceExisting>
+			</li>
+			<li Class="Ascendancy.CompProperties_Erasure">
+				<goodwillImpact>-30</goodwillImpact>
+			</li>
+
+			<li Class="CompProperties_AbilityFleckOnTarget">
+				<fleckDef>PsycastPsychicEffect</fleckDef>
+			</li>
+		</comps>
+	</AbilityDef>
+
+	<AbilityDef ParentName="PsycastBase">
+		<defName>AR_Starfall</defName>
+		<label>Starfall</label>
+		<description>The caster uses their incomparable power to draw a meteor to land in a target location.</description>
+		<level>6</level>
+		<iconPath>UI/Abilities/Starfall</iconPath>
+		<hotKey>Misc1</hotKey>
+		<cooldownTicksRange>3600000</cooldownTicksRange>
+		<statBases>
+			<Ability_Duration>15000</Ability_Duration>
+			<Ability_EntropyGain>70</Ability_EntropyGain>
+			<Ability_PsyfocusCost>0.70</Ability_PsyfocusCost>
+		</statBases>
+		<verbProperties>
+			<warmupTime>300</warmupTime>
+			<range>999</range>
+			<targetParams>
+				<canTargetLocations>true</canTargetLocations>
+			</targetParams>
+		</verbProperties>
+		<comps>
+			<li Class="CompProperties_AbilityGiveHediff">
+				<compClass>CompAbilityEffect_GiveHediff</compClass>
+				<hediffDef>PsychicComa</hediffDef>
+				<onlyApplyToSelf>True</onlyApplyToSelf>
+				<replaceExisting>true</replaceExisting>
+			</li>
+			<li Class="Ascendancy.CompProperties_Starfall"/>
+
+			<li Class="CompProperties_AbilityFleckOnTarget">
+				<fleckDef>PsycastPsychicEffect</fleckDef>
+			</li>
+		</comps>
+	</AbilityDef>
+	
+	<AbilityDef ParentName="PsycastBase">
+		<defName>AR_Soulfind</defName>
+		<label>Soulfind</label>
+		<description>The caster uses their incomparable power to recover the spirit of a dead pawn and restore it to this world.</description>
+		<level>6</level>
+		<iconPath>UI/Abilities/Soulfind</iconPath>
+		<hotKey>Misc1</hotKey>
+		<cooldownTicksRange>3600000</cooldownTicksRange>
+		<statBases>
+			<Ability_Duration>2000</Ability_Duration>
+			<Ability_EntropyGain>80</Ability_EntropyGain>
+			<Ability_PsyfocusCost>0.80</Ability_PsyfocusCost>
+		</statBases>
+		<verbProperties>
+			<warmupTime>300</warmupTime>
+			<range>20</range>
+			<drawAimPie>False</drawAimPie>
+			<requireLineOfSight>False</requireLineOfSight>
+			<targetParams>
+				<canTargetSelf>false</canTargetSelf>
+				<canTargetPawns>true</canTargetPawns>
+				<canTargetBuildings>false</canTargetBuildings>
+				<canTargetAnimals>False</canTargetAnimals>
+				<canTargetHumans>true</canTargetHumans>
+				<canTargetMechs>false</canTargetMechs>
+			</targetParams>
+		</verbProperties>
+		<comps>
+			<li Class="CompProperties_AbilityGiveHediff">
+				<compClass>CompAbilityEffect_GiveHediff</compClass>
+				<hediffDef>AR_Soulfind</hediffDef>
+				<onlyApplyToSelf>True</onlyApplyToSelf>
+				<replaceExisting>true</replaceExisting>
+			</li>
+			<li Class="Ascendancy.CompProperties_Soulfind">
+				<destination>Selected</destination>
+				<goodwillImpact>-100</goodwillImpact>
+			</li>
+
+			<li Class="CompProperties_AbilityFleckOnTarget">
+				<fleckDef>PsycastPsychicEffect</fleckDef>
+			</li>
+		</comps>
+	</AbilityDef>
+	
+	<HediffDef>
+		<defName>AR_Soulfind</defName>
+		<hediffClass>Ascendancy.Hediff_Soulfind</hediffClass>
+		<label>Soulfind</label>
+		<description>Soulfind effect.</description>
+		<comps>
+			<li Class="HediffCompProperties_Disappears">
+				<showRemainingTime>True</showRemainingTime>
+			</li>
+			<li Class="HediffCompProperties_DisappearsOnDeath"/>
+		</comps>
+		<stages>
+			<li>
+				<painOffset>0.10</painOffset>
 			</li>
 		</stages>
 	</HediffDef>

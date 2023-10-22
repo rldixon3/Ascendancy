@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-	<AR.RequiresPersonaWeapon>Requires persona weapon</AR.RequiresPersonaWeapon>
+	<AR.RequiresPersonaWeapon>Requires persona weapon.</AR.RequiresPersonaWeapon>
+	<AR.TargetPawnToSacrifice>Target a living human to sacrifice.</AR.TargetPawnToSacrifice>
+	<AR.TargetHumanCorpseToResurrect>Target an human non-dessicated corpse to resurrect.</AR.TargetHumanCorpseToResurrect>
 </LanguageData>

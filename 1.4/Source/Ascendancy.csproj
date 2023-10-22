@@ -64,18 +64,23 @@
   <ItemGroup>
     <Compile Include="AR_DefOf.cs" />
     <Compile Include="AscendancyMod.cs" />
+    <Compile Include="CompAbilityEffect_Domination.cs" />
+    <Compile Include="CompAbilityEffect_Erasure.cs" />
     <Compile Include="CompAbilityEffect_Explosion.cs" />
     <Compile Include="CompAbilityEffect_Genetypis.cs" />
     <Compile Include="CompAbilityEffect_Ignite.cs" />
     <Compile Include="CompAbilityEffect_NatureManifest.cs" />
     <Compile Include="CompAbilityEffect_PersonaManifest.cs" />
     <Compile Include="CompAbilityEffect_RestoreHP.cs" />
+    <Compile Include="CompAbilityEffect_Soulfind.cs" />
+    <Compile Include="CompAbilityEffect_Starfall.cs" />
     <Compile Include="CompAbilityEffect_Terraforma.cs" />
     <Compile Include="CompAbilityEffect_Weave.cs" />
     <Compile Include="CompAbilityEffect_WindWave.cs" />
     <Compile Include="CompPowerPlantWind_DesiredPowerOutput_Patch.cs" />
     <Compile Include="GameConditionManager_RegisterCondition_Patch.cs" />
     <Compile Include="GameCondition_Ascendancy.cs" />
+    <Compile Include="Hediff_Soulfind.cs" />
     <Compile Include="ImmunityHandler_DiseaseContractChanceFactor_Patch.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
